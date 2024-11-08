@@ -57,7 +57,7 @@ pub const GameState = struct {
         self.grid = grid;
     }
     pub fn dbg_print(self: *const GameState, include_coords: bool) void {
-        std.debug.print("-------------------\n", .{});
+        std.debug.print("----------\n", .{});
         for (0..self.row_count) |row| {
             for (0..self.row_length) |col| {
                 if (include_coords) {
@@ -65,12 +65,12 @@ pub const GameState = struct {
                 } else if (self.grid[row][col]) {
                     std.debug.print("{s} ", .{"o"});
                 } else {
-                    std.debug.print("{s} ", .{"x"});
+                    std.debug.print("{s} ", .{" "});
                 }
             }
             std.debug.print("\n", .{});
         }
-        std.debug.print("-------------------\n", .{});
+        std.debug.print("----------\n", .{});
     }
     pub fn update_last_frame(self: *const GameState) void {
         for (0..self.row_count) |row_number| {
